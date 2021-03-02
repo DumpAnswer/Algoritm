@@ -2,20 +2,43 @@
 
 namespace Task2
 {
-    
-        class Program
+
+    class Program
+    {
+
+
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
+            var testData = new BinarSearch.TestCase[2];
+            int[] array = new int[] { 32, 45, 43, 65, 47, 33, 24, 75, 34, 12 };
+            testData[0] = new BinarSearch.TestCase()
             {
-            BinarSearch binarSearch = new BinarSearch();
 
-            int[] inputArray = new int[] { 1, 3, 5, 6, 7, 34, 64, 123, 43, 68, 32, 55, 66, 88 };
+                
+                searhNumber = 47,
+                index = 4
 
-                BinarSearch.binarSearch(inputArray, 64);
+
+            };
+            
+            testData[1] = new BinarSearch.TestCase()
+            {
+                searhNumber = 75,
+                index = 7
+            };
+            foreach (var testCase in testData)
+            {
+                 int result = BinarSearch.BinarySearch(array,testCase.searhNumber);
+                
+                var correct = result == testCase.searhNumber;
+                Console.WriteLine($"Ищю номер = {testCase.searhNumber} Ответ {result} Правельный ответ {testCase.index}  ");
+
 
 
             }
+
         }
     }
+}
 
 
